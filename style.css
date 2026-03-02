@@ -244,7 +244,24 @@ select:focus{
     background: #ff523b;
     color: #fff;
 }
+.product-details {
+    margin: 20px 0;
+    line-height: 1.6;
+}
 
+.product-details h4 {
+    margin-bottom: 10px;
+    color: #333; 
+}
+
+.product-details ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.product-details p {
+    margin: 8px 0;
+}
 
 
 
