@@ -263,6 +263,51 @@ select:focus{
     margin: 8px 0;
 }
 
+/*-----Account-----*/
+.col-2 form {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.col-2 input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.col-2 h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;  
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #ff523b;  
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #e04532;
+}
+
+.col-2 a {
+    color: #ff523b;
+    text-decoration: none;
+}
+
+.col-2 a:hover {
+    text-decoration: underline;
+}
 
 
 
@@ -401,14 +446,18 @@ th:last-child{
     .col-2, .col-3, .col-4{
         flex-basis: 100%;
     }
-}
-.single-product .row{
+  
+  .single-product .row{
     text-align: left;
-}
-.single-product .col-2{
+  }
+  .single-product .col-2{
     padding: 20px 0;
-}
-.single-product h1{
+  }
+  .single-product h1{
     font-size: 26px;
     line-height: 32px;
+  }
+  .cart-info p{
+    display: none;
+  }
 }
