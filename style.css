@@ -224,7 +224,7 @@ ul{
         background: #333;
         width: 100%;
         overflow: hidden;
-        transition: max-height 0.5seconds;
+        transition: max-height 0.5s;
     }
     nav ul li{
         display: block;
