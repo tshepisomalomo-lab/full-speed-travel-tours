@@ -188,28 +188,24 @@
 
     <!-- JavaScript for Toggle -->
     <script>
-        var loginForm = document.getElementById("LoginForm");
-        var regForm = document.getElementById("RegForm");
-        var indicator = document.getElementById("Indicator");
-        var container = document.getElementById("formContainer");
+    const container = document.getElementById("formContainer");
 
-        // Start with Login active
-        container.classList.add("active-login");
+    // Start with Login active
+    container.classList.add("login-active");
 
-        function loginToggle() {
-            container.classList.remove("active-register");
-            container.classList.add("active-login");
-            // Optional: update active class on spans if you want visual highlight
-            document.querySelector(".form-btn span:first-child").classList.add("active");
-            document.querySelector(".form-btn span:last-child").classList.remove("active");
-        }
+    function loginToggle() {
+        container.classList.remove("register-active");
+        container.classList.add("login-active");
+        document.querySelectorAll(".toggle-btn")[0].classList.add("active");
+        document.querySelectorAll(".toggle-btn")[1].classList.remove("active");
+    }
 
-        function registerToggle() {
-            container.classList.remove("active-login");
-            container.classList.add("active-register");
-            document.querySelector(".form-btn span:first-child").classList.remove("active");
-            document.querySelector(".form-btn span:last-child").classList.add("active");
-        }
+    function registerToggle() {
+        container.classList.remove("login-active");
+        container.classList.add("register-active");
+        document.querySelectorAll(".toggle-btn")[0].classList.remove("active");
+        document.querySelectorAll(".toggle-btn")[1].classList.add("active");
+    }
     </script>
 
 </body>
