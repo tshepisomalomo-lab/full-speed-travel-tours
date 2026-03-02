@@ -3,82 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account - The Braai Master</title>
-    <link rel="stylesheet" href="style.css">  
+    <title>Account - Brooks & CO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Inline styles for the account form toggle (add to style.css later if preferred) -->
+    <style>
+        .account-page {
+            padding: 50px 0;
+            background: #f8f8f8;
+        }
+        .form-container {
+            background: #fff;
+            width: 300px;
+            height: 400px;
+            position: relative;
+            text-align: center;
+            padding: 20px 0;
+            margin: auto;
+            box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .form-btn {
+            display: inline-block;
+        }
+        .form-btn span {
+            font-weight: bold;
+            padding: 0 30px;
+            color: #555;
+            cursor: pointer;
+            width: 100px;
+            display: inline-block;
+        }
+        .form-btn span.active {
+            color: #ff523b; /* your brand color */
+        }
+        #Indicator {
+            width: 100px;
+            height: 3px;
+            background: #ff523b;
+            margin-top: 8px;
+            transform: translateX(100px); /* starts at Login */
+            transition: transform 0.5s;
+        }
+        form {
+            max-width: 300px;
+            padding: 0 20px;
+            position: absolute;
+            top: 130px;
+            transition: transform 0.5s;
+        }
+        #LoginForm {
+            left: -300px; /* start off-screen left for Register view */
+        }
+        #RegForm {
+            left: 0px; /* visible by default? Adjust based on start view */
+        }
+        input {
+            width: 100%;
+            height: 30px;
+            margin: 10px 0;
+            padding: 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #ff523b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .btn:hover {
+            background: #e04532;
+        }
+        a {
+            color: #ff523b;
+            text-decoration: none;
+        }
+        /* Make Register start hidden or adjust initial state */
+        .form-container.active-login #LoginForm { transform: translateX(0); }
+        .form-container.active-login #RegForm { transform: translateX(300px); }
+        .form-container.active-register #LoginForm { transform: translateX(-300px); }
+        .form-container.active-register #RegForm { transform: translateX(0); }
+        .form-container.active-register #Indicator { transform: translateX(100px); }
+        .form-container.active-login #Indicator { transform: translateX(0px); }
+    </style>
 </head>
 <body>
-    <div class="header">
-        <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                    <img src="images/braai master.jpg" width="125px" alt="Braai Master Logo">
-                </div>
-                <nav>
-                    <ul id="MenuItems">
-                        <li><a href="index.html">Home</a></li>  
-                        <li><a href="product.html">Product</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-                <img src="images/menu icon.webp" class="menu-icon" onclick="menutoggle()">
-            </div>
-        </div>
-    </div>
 
-    <!--Login Section -->
+    <!-- Navbar -->
     <div class="small-container">
-        <div class="row">
-            <!-- Left side: Login Form -->
-            <div class="col-2">
-                <h2>Login</h2>
-                <form>
-                    <input type="text" placeholder="Username or Email" required>
-                    <input type="password" placeholder="Password" required>
-                    <button type="submit" class="btn">Login</button>
-                    <p><a href="#">Forgot Password?</a></p>
-                </form>
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Brooks & CO.jpg" width="125px" alt="Brooks & CO Logo">
+                </a>
             </div>
-
-            <!-- Right side: Register Form -->
-            <div class="col-2">
-                <h2>Register</h2>
-                <form>
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <input type="text" placeholder="Username" required>
-                    <input type="password" placeholder="Password" required>
-                    <input type="password" placeholder="Confirm Password" required>
-                    <button type="submit" class="btn">Create Account</button>
-                </form>
-            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+            <a href="cart.html">
+                <img src="images/cart.jpg" width="30px" height="30px" alt="Cart">
+            </a>
         </div>
-        <p style="text-align: center; margin-top: 30px;">
-            By registering, you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.
-        </p>
     </div>
 
-     <!--------footer-------->
+    <!-- Account Page -->
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="images/Cool-Clothing-Brand-eCommerce-Website-for-Women.png" width="100%" alt="Fashion Image">
+                </div>
+                
+                <div class="col-2">
+                    <div class="form-container" id="formContainer">
+                        <div class="form-btn">
+                            <span onclick="loginToggle()" class="active">Login</span>
+                            <span onclick="registerToggle()">Register</span>
+                            <hr id="Indicator">
+                        </div>
+                        
+                        <form id="LoginForm">
+                            <input type="text" placeholder="Username">
+                            <input type="password" placeholder="Password">
+                            <button type="submit" class="btn">Login</button>
+                            <a href="#">Forgot password?</a>
+                        </form>
+                        
+                        <form id="RegForm">
+                            <input type="text" placeholder="Username">
+                            <input type="email" placeholder="Email">
+                            <input type="password" placeholder="Password">
+                            <button type="submit" class="btn">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="footer-col-1">
                     <h3>Download our App</h3>
-                    <p>Download App for Android and iOS mobile phone</p>
+                    <p>Download App for Android and iOS mobile phones</p>
+                    <div class="app-logo">
+                        <img src="images/playstore.png" alt="Play Store">
+                        <img src="images/apple store.png" alt="App Store">
+                    </div>
                 </div>
                 <div class="footer-col-2">
-                    <img src="images/braai master.jpg">
-                    <p>Quality Cuts & Cold Ones – Making the Good Life Accessible to Everyone</p>
-                </div>
-                <div class="footer-col-3">
                     <h3>Useful Links</h3>
                     <ul>
                         <li>Coupons</li>
+                        <li>Blog Posts</li>
                         <li>Return Policy</li>
-                        <li>Join Affiliates</li>
+                        <li>Join Affiliate</li>
                     </ul>
                 </div>
-                <div class="footer-col-4">
+                <div class="footer-col-3">
                     <h3>Follow Us</h3>
                     <ul>
                         <li>Facebook</li>
@@ -88,37 +184,33 @@
                 </div>
             </div>
             <hr>
-            <p class="copyright">Copyright 2026 - BRAAI MASTER</p>
+            <p class="copyright">Copyright 2026 - BROOKS & CO</p>
         </div>
     </div>
 
-    <!----------js for toggle menu---------->
-     <script>
-        var MenuItems= document.getElementById("MenuItems")
-
-        MenuItems.style.maxHeight = "0px";
-
-        function menutoggle(){
-            if(MenuItems.style.maxHeight == "0px")
-        {
-            MenuItems.style.maxHeight = "200px";
-        }
-        else
-        {
-            MenuItems.style.maxHeight = "0px"
-        }
-        }
-     </script>
-
+    <!-- JavaScript for Toggle -->
     <script>
-        var MenuItems = document.getElementById("MenuItems");
-        MenuItems.style.maxHeight = "0px";
-        function menutoggle() {
-            if (MenuItems.style.maxHeight == "0px") {
-                MenuItems.style.maxHeight = "200px";
-            } else {
-                MenuItems.style.maxHeight = "0px";
-            }
+        var loginForm = document.getElementById("LoginForm");
+        var regForm = document.getElementById("RegForm");
+        var indicator = document.getElementById("Indicator");
+        var container = document.getElementById("formContainer");
+
+        // Start with Login active
+        container.classList.add("active-login");
+
+        function loginToggle() {
+            container.classList.remove("active-register");
+            container.classList.add("active-login");
+            // Optional: update active class on spans if you want visual highlight
+            document.querySelector(".form-btn span:first-child").classList.add("active");
+            document.querySelector(".form-btn span:last-child").classList.remove("active");
+        }
+
+        function registerToggle() {
+            container.classList.remove("active-login");
+            container.classList.add("active-register");
+            document.querySelector(".form-btn span:first-child").classList.remove("active");
+            document.querySelector(".form-btn span:last-child").classList.add("active");
         }
     </script>
 
