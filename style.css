@@ -473,3 +473,11 @@ th:last-child{
         margin-bottom: 30px;
     }
 }
+@media (max-width: 800px) {
+    .contact-hero {
+        padding: 60px 15px;
+    }
+    .col-2 {
+        margin-bottom: 40px;
+    }
+}
