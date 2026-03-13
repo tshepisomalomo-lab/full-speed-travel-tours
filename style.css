@@ -179,12 +179,14 @@ h4{
 }
 .row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 30px;                    
   justify-content: center;
+  overflow-x: auto;
 }
 .col-3 {
-  flex: 1 1 300px;              
+  flex: 0 1 300px; 
+  min-width: 320px;             
   max-width: 360px;             
   background: white;
   padding: 40px 25px;
@@ -220,8 +222,12 @@ h4{
   font-weight: 600;
 }
 @media (max-width: 900px) {
+    .row {
+    flex-wrap: wrap;          
+    justify-content: center;
+  }
   .col-3 {
-    flex: 1 1 100%;           
+    flex: 1 1 300px;          
     max-width: none;
   }
 }
@@ -372,17 +378,14 @@ select:focus{
     margin: 20px 0;
     line-height: 1.6;
 }
-
 .product-details h4 {
     margin-bottom: 10px;
     color: #333; 
 }
-
 .product-details ul {
     padding-left: 20px;
     margin: 10px 0;
 }
-
 .product-details p {
     margin: 8px 0;
 }
@@ -488,12 +491,10 @@ form textarea {
     font-size: 16px;
     box-sizing: border-box;
 }
-
 form textarea {
     resize: vertical;
     min-height: 120px;
 }
-
 .btn {
     width: 100%;
     padding: 12px;
@@ -504,7 +505,6 @@ form textarea {
     font-size: 16px;
     cursor: pointer;
 }
-
 .btn:hover {
     background: #e04532;
 }
@@ -513,7 +513,6 @@ form textarea {
     justify-content: space-between;
     gap: 40px;                  
 }
-
 .col-2:last-child{
     flex: 0 1 380px;             
     margin-left: auto; 
@@ -522,17 +521,14 @@ form textarea {
     margin-bottom: 15px;
     color: #333;
 }
-
 .col-2 p {
     margin: 8px 0;
     line-height: 1.6;
 }
-
 .col-2 a {
     color: #ff523b;
     text-decoration: none;
 }
-
 .col-2 a:hover {
     text-decoration: underline;
 }
@@ -578,100 +574,6 @@ form textarea {
         cursor: pointer;
     }
 }
-/*-------single product details-------*/
-.single-product{
-    margin-top: 80px;
-}
-.single-product .col-2 img{
-   padding: 0; 
-}
-.single-product .col-2{
-    padding: 20px;
-}
-.single-product h4{
-    margin: 20px 0;
-    font-size: 22px;
-    font-weight: bold;
-}
-.single product select{
-    display: block;
-    padding: 20px;
-    margin-top: 20px;
-}
-.single product input{
-    width: 50px;
-    height: 40px;
-    padding-left: 10px;
-    font-size: 20px;
-    margin-right: 10px;
-    border: 1px solid #ff523b;
-}
-input :focus{
-    outline: none;
-}
-.small-img-row{
-    display:flex;
-    justify-content: space-between;
-}
-small-img-col{
-    flex-basis: 24%;
-    cursor: pointer;
-
-}
-/*--------cart item --------*/
- .cart-page{
-    margin: 80px auto;
- }
- table{
-    width:100%;
-    border-collapse: collapse;
- }
- .cart-info{
-    display: flex;
-    flex-wrap: wrap;
- }
-th{
-    text-align: left;
-    padding: 5px;
-    color: #fff;
-    background: #ff523b;
-    font-weight: normal;
-}
-td{
-    padding: 10px 5px;
-}
-td input{
-    width: 40px;
-    height: 30px;
-    padding: 5px;
-}
-td a{
-    color: #ff523b;
-    font-size: 12px;
-}
-td img{
-    width: 80px;
-    margin-right: 10px;
-    height: 80px;
-}
-.total-price{
-    display: flex;
-    justify-content: flex-end;
-}
-.total-price table{
-    border-top: 3px solid #ff523b;
-    width: 100%;
-    min-width: 400px;
-}
-td:last-child{
-    text-align: right;
-}
-th:last-child{
-    text-align: right;
-}
-
-
-
 
 /*---media query for less than 600 screen size---*/
 @media only screen and (max-width: 600px){
@@ -681,20 +583,6 @@ th:last-child{
     .col-2, .col-3, .col-4{
         flex-basis: 100%;
     }
-  
-  .single-product .row{
-    text-align: left;
-  }
- .single-product .col-2{
-    padding: 20px 0;
-  }
-  .single-product h1{
-    font-size: 26px;
-    line-height: 32px;
-  }
-  .cart-info p{
-    display: none;
-  }
 }@media (max-width: 800px) {
     .about-hero {
         padding: 60px 15px;
