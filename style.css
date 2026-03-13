@@ -387,117 +387,79 @@ select:focus{
     margin: 8px 0;
 }
 
-/*----------account----------*/
-
+/*----------account page----------*/
+.account-page{
+    padding: 50px 0;
+    background: radial-gradient(#fff, #ffd6d6);
+}
 .form-container {
     background: white;
-    width: 340px;
-    min-height: 380px;
-    margin: 0 auto;
-    padding: 30px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    width: 300px;
+    height: 400px;
+    margin: auto;
+    padding: 20px 0;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
-
-.form-toggle {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 25px;
-    position: relative;
+.form-container span {
+    font-weight: bold;
+    padding: 0 10px;
+    color: #555;
+    cursor: pointer;
+    width: 100px;
+    display: inline-block;
 }
-
-.toggle-btn {
+.form-btn {
+    display: inline-block;
     font-weight: 600;
     padding: 10px 35px;
     cursor: pointer;
     color: #666;
     transition: color 0.3s;
 }
-
-.toggle-btn.active {
-    color: #ff523b;          
-}
-
-.indicator {
+.form-container form{
+    max-width: 300px;
+    padding: 0 20px;
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 90px;
-    height: 3px;
-    background: #ff523b;
-    border-radius: 2px;
-    transform: translateX(-50%);
-    transition: all 0.4s ease;
+    top: 130px;
+    transition: transform 1s;
 }
-
-.auth-form {
-    position: absolute;
+form input{
     width: 100%;
-    left: 0;
-    top: 80px;
+    height: 30px;
+    margin: 10px 0;
     padding: 0 10px;
-    box-sizing: border-box;
-    transition: transform 0.45s ease;
+    border: 1px solid #ccc;    
 }
-
-#LoginForm, #RegForm {
-    position: absolute;
+form .btn{
     width: 100%;
-    transition: 0.5s;
-    padding: 20px;
-}
-
-#RegForm {
-    transform: translateX(120%);
-}
-
-.form-container.register-active #LoginForm {
-    transform: translateX(-120%);
-}
-
-.form-container.register-active #RegForm {
-    transform: translateX(0);
-}
-
-.form-container.register-active .indicator {
-    transform: translateX(50px);
-}
-
-.auth-form input {
-    display: block;
-    width: 100%;
-    padding: 12px 14px;
-    margin: 14px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 15px;
-}
-
-.auth-form .btn {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    background: #ff523b;
-    color: white;
     border: none;
-    border-radius: 5px;
-    font-weight: 600;
     cursor: pointer;
+    margin: 10px 0;
 }
-
-.auth-form .btn:hover {
-    background: #e04532;
+form .btn:focus{
+    outline: none;
 }
-
-.forgot-link {
-    display: block;
-    text-align: center;
-    margin-top: 12px;
-    color: #ff523b;
-    font-size: 14px;
-    text-decoration: none;
+#LoginForm{
+    left: -300px;
+}
+#RegForm{
+    left: 0;
+}
+form a{
+    font-size: 12px;
+}
+#Indicator {
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    margin-top: 8px;
+    background: #ff523b;
+    border: none;
+    transform: translateX(100px);
+    transition: transform 1s;
 }
 
 /*-----Contact-----*/
