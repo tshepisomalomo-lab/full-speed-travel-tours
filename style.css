@@ -390,15 +390,17 @@ select:focus{
 /*----------account page----------*/
 .account-page{
     padding: 50px 0;
-    background: radial-gradient(#fff, #ffd6d6);
+    background: radial-gradient(135deg, #e6f0ff 0%, #ffffff 100%);
+    min-height: 100vh;
 }
 .form-container {
-    background: white;
+    background:#ffffff;
     width: 300px;
     height: 400px;
     margin: auto;
     padding: 20px 0;
     box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+    border-radius: 16px;
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -410,6 +412,8 @@ select:focus{
     cursor: pointer;
     width: 100px;
     display: inline-block;
+    font-size: 1.1rem;
+    transition: color 0.3s;
 }
 .form-btn {
     display: inline-block;
@@ -439,6 +443,10 @@ form .btn{
     cursor: pointer;
     margin: 10px 0;
 }
+form .btn:hover {
+    background: #e6492d;              
+    transform: translateY(-2px);
+}
 form .btn:focus{
     outline: none;
 }
@@ -450,6 +458,12 @@ form .btn:focus{
 }
 form a{
     font-size: 12px;
+    color: #0066cc;                  
+    text-decoration: none;
+}
+form a:hover {
+    text-decoration: underline;
+    color: #ff523b;
 }
 #Indicator {
     position: absolute;
