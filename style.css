@@ -148,6 +148,18 @@ h4{
 .col-4 :hover{
     transform: translateY(-5px);
 }
+.menu-icon {
+  width: 28px;         
+  height: auto;        
+  cursor: pointer;     
+  display: none;
+}
+@media only screen and (max-width: 800px) {
+  .menu-icon {
+    display: block;
+  }
+}
+  
 /*--------testimonial--------*/
 .testimonial {
   padding: 100px 20px;
